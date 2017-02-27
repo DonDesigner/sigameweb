@@ -1,0 +1,9 @@
+/node_modules
+/LIXO
+/.vscode
+/public/vendor
+*.pws
+.swp
+*.rar
+*.DS_Store
+*.old
