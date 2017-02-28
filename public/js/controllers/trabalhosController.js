@@ -1,14 +1,14 @@
 angular.module('sigame').controller('trabalhosController',
-  function ($resource, $scope) {
+  function ($scope, Trabalho) {
 
     $scope.trabalhos = [];
     $scope.filtro = '';
     $scope.mensagem = { texto: '' };
 
-    var Trabalhos = $resource('/trabalhos/');
+   // var Trabalhos = $resource('/trabalhos/');
 
     function listaTrabalhos() {
-      Trabalhos.query(
+      Trabalho.query(
         function (trabalhos) {
           $scope.trabalhos = trabalhos;
         },
@@ -21,7 +21,12 @@ angular.module('sigame').controller('trabalhosController',
     listaTrabalhos();
 
     $scope.remove = function(trabalho){
-      Trabalhos.delete({id : trabalho._id});
+      Trabalho.delete({id : trabalho._id},
+      listaTrabalhos,
+      function(erro){
+        console.log("Não foi possível remover o contato!");
+        console.log(erro)
+      });
     }
   }
 );

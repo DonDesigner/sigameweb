@@ -16,14 +16,38 @@
 <div ng-show='trabalhos.length' class="table table-responsive">
   <table class="table table-striped" cellspacing="0">
     <tr>
+   
+      <th>M</th>
+      <th>T</th>
+      <th>OP</th>
+      <th>Orçamento</th>      
       <th>Cliente</th>
       <th>Trabalho</th>
+      <th>Qtde</th>
+      <th>Entrega</th>
+      <th>Vendedor</th>
+      <th>Apontamento</th>
+      <th>Setor</th>    
       <th class="text-center">Ação</th>
     </tr>
+
     <tr ng-repeat="trabalho in trabalhos | filter:filtro">
       
-      <td><a ng-href="#/trabalhos/{{trabalho._id}}">{{trabalho.cliente}}</a></td>
+      <td>{{trabalho.modo.icone}}</td>
+      <td>{{trabalho.tipo.icone}}</td>
+      <td>{{trabalho.numeroOP}}</td>
+      <td>{{trabalho.numeroOrcamento}}</td>
+      <td><a ng-href="#/trabalhos/{{trabalho._id}}">{{trabalho.cliente.nome}}</a></td>
       <td><a>{{trabalho.trabalho}}</a></td>
+      <td>trabalho.quantidade</td>
+      <td>{{trabalho.entrega}}</td>
+      <td>{{trabalho.vendedor.nome}}</td>
+      <td>{{trabalho.apontamento.nome}}</td>
+      <td>{{trabalho.setor.nome}}</td>
+
+
+
+
       <td class="text-center">
         <button type="button" class="btn btn-default btn-xs" ng-click="remove(trabalho)">
         <span class="glyphicon glyphicon glyphicon-trash"></span>

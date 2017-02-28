@@ -1,59 +1,77 @@
-var ID_CONTATO_INC = 9;
-
-var trabalhos = [
-  { "_id": 1, "cliente": "Obra Prima", "trabalho": "Anuario 2017" },
-  { "_id": 2, "cliente": "Enfoque", "trabalho": "Revista Fev2017" },
-  { "_id": 3, "cliente": "FreeWay", "trabalho": "Catálogo Couro Modas" },
-  { "_id": 4, "cliente": "Atlas Ceramica", "trabalho": "Mostruario" },
-
-];
+//app/controller/trabalho.js
 
 
-module.exports = function () {
+module.exports = function (app) {
+
+  var Trabalho = app.models.ordens;
 
   var controller = {};
 
   controller.listaTrabalhos = function (req, res) {
-    res.json(trabalhos);
-  };
-
-  controller.obtemTrabalho = function(req, res){
-    var idTrabalho = req.params.id;
-    var trabalho = trabalhos.filter(function(trabalho){
-      return trabalho._id == idTrabalho;
-    })[0];
-
-    trabalho ? res.json(trabalho) : res.status(404).send('Trabalho não encontrado');
-
-  };
-
-  controller.salvarTrabalho = function(req, res){
-    var trabalho = req.body;
-    trabalho = trabalho.id ? atualizar(trabalho) : adicionar(trabalho);
-    res.json(trabalho);
-  }
-
-  function adicionar(trabalhoNovo){
-    trabalhoNovo._id = ++ID_CONTATO_INC;
-    trabalhos.push(trabalhoNovo);
-    return trabalhoNovo;
-  }
-
-  function atualizar(trabalhoAtualizado){
-    trabalhos = trabalhos.map(function(trabalho){
-
-      if(trabalho._id == trabalhoAtualizado._id){
-        trabalhos = trabalhoAtualizado;
+    var promise = Trabalho.find().exec()
+      .then(
+      function (trabalhos) {
+        res.json(trabalhos);
+      },
+      function (erro) {
+        Console.error(erro);
+        res.status(505).json(erro);
       }
-      return trabalho;
-    });
-    return trabalhoAtualizado;
-  }
-
-  controller.removeTrabalho = function(req, res){
-    console.log("Trabalho :" + req.params.id);
-    res.status(500).exec();
+      );
   };
 
-return controller;
+  controller.obtemTrabalho = function (req, res) {
+    var _id = req.params.id;
+
+    Trabalho.findById(_id).exec()
+      .then(function (trabalho) {
+        if (!trabalho) throw new Error('Trabalho não encontrado');
+        res.json(trabalho);
+      },
+      function (erro) {
+        console.log(erro);
+        res.status(404).json(erro);
+      }
+      );
+
+  };
+
+  controller.salvarTrabalho = function (req, res) {
+    var _id = req.body._id;
+
+    if (_id) {
+      Trabalho.findByIdAndUpdate(_id, req.body).exec()
+        .then(function (trabalho) {
+          res.json(trabalho);
+        },
+        function (erro) {
+          console.error(erro);
+          res.status(500).json(erro);
+        });
+    } else {
+      Trabalho.create(req.body)
+        .then(
+        function (trabalho) {
+          res.status(201).json(trabalho);
+        },
+        function (erro) {
+          console.log(erro);
+          res.status(500).json(erro);
+        }
+        )
+    }
+  }
+
+  controller.removeTrabalho = function (req, res) {
+    var _id = req.params.id;
+    Trabalho.remove({ "_id": _id }).exec()
+      .then(function () {
+        res.end();
+      },
+      function (erro) {
+        return console.error(erro);
+      });
+  };
+
+  return controller;
 }

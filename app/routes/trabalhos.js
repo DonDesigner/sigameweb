@@ -8,5 +8,8 @@ module.exports = function (app) {
   app.route('/trabalhos/:id')
     .get(controller.obtemTrabalho)
     .delete(controller.removeTrabalho);
+    
+ 
+  
 
 }
