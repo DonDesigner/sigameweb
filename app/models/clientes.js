@@ -12,7 +12,7 @@ module.exports = function(){
       required : true
     },
     criado : {
-      type : Date,
+      type : String,
       required : true
     },
     ativo : {

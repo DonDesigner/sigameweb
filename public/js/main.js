@@ -22,9 +22,19 @@ angular.module('sigame', ['ngRoute', 'ngResource'])
         controller : 'trabalhoController'
       })
 
-      .when('/adm/tipo', {
-        templateUrl : 'partials/tipo.html',
-        controller : 'tipoController'
+      .when('/clientes', {
+        templateUrl : 'partials/clientes.html',
+        controller : 'clientesController'
+      })
+
+      .when('/cliente', {
+        templateUrl : 'partials/cliente.html',
+        controller : 'clienteController'
+      })
+
+      .when('/clientes/:clienteId',{
+        templateUrl : 'partials/cliente.html',
+        controller : 'clienteController'
       })
 
   });

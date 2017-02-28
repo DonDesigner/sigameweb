@@ -1,0 +1,2 @@
+* buscar por apontamentos com base nos setores
+db.setores.find({"nome" : "Pré-Impressão"}, {"apontamentos": []})

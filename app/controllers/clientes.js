@@ -17,8 +17,9 @@ module.exports = function (app) {
   };
 
   controller.buscarClientes = function(req, res){
-
-    var promise = Cliente.find({"cliente" : "/"}).exec()
+    var query = req.body.query;
+ 
+    var promise = Clientes.find({"nome" : new RegExp(query ,'i')}).exec()
     .then(
       function(clientes){
         res.json(clientes);
@@ -71,7 +72,7 @@ module.exports = function (app) {
         }
         );
     }
-  }
+  };
 
   controller.removerCliente = function(req, res){
     var id = req.params.id;
@@ -84,7 +85,7 @@ module.exports = function (app) {
 
     }
     );
-  }
+  };
 
   return controller;
 }

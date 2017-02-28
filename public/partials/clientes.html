@@ -1,0 +1,33 @@
+<p ng-show="mensagem.texto">
+    {{mensagem.texto}}
+</p>
+
+<div class="jumbotron">
+    <h2 class="text-center">
+        Clientes Sigame
+    </h2>
+</div>
+
+<a href="#/cliente" class="btn btn-primary">Novo Cliente</a>
+
+<p>Clientes cadastrados: {{clientes.length}}</p>
+
+<div class="table table-responsive" ng-show="clientes.length">
+    <table class="table table-striped">
+        <tr>
+            <th>Cliente</th>
+            <th>Cidade</th>
+            <th>Ação</th>
+        </tr>
+        <tr ng-repeat="cliente in clientes">
+            <th><a ng-href="#/clientes/{{cliente._id}}">{{cliente.nome}}</a></th>
+            <th>{{cliente.cidade}}</th>
+            <td class="text-center">
+                <button type="button" class="btn btn-default btn-xs" ng-click="remove(cliente)">
+        <span class="glyphicon glyphicon glyphicon-trash"></span>
+        </button>
+            </td>
+        </tr>
+    </table>
+
+</div>

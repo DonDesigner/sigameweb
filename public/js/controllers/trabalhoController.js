@@ -23,10 +23,10 @@ angular.module('sigame').controller('trabalhoController',
       $scope.trabalho.$save()
         .then(function () {
           $scope.mensagem = { texto: 'Salvo com sucesso' };
-          $scope.Trabalho = new Trabalho();
+          $scope.trabalho = new Trabalho();
         })
-        .catch(function(erro){
-          $scope.mensagem = { texto: 'Não foi possível salvar!'};
+        .catch(function (erro) {
+          $scope.mensagem = { texto: 'Não foi possível salvar!' };
         });
     };
 
