@@ -1,8 +1,8 @@
 SigaME WEB Beta 0.0.1
 ===================
+> Cristal Indústria Gráfica - **Diego Fernandes** 
 
-
-Sistema SigaME todo  **refeito**[^stackedit] utilizando como base a tecnologia MEAN. Sistema em fase Beta.  
+Sistema SigaME todo  **refeito** utilizando tecnologia Open Source com base em MEAN. Sistema em fase Beta.  
 
 ----------
 
@@ -17,3 +17,5 @@ Por anos o sitema SigaME utiliza de tecnologia Microsoft, passando desde VB.Net 
 > - Pela primeira vez está em teste uso de tecnologias OpenSource, como o NodeJS, MongoDB e o servidor Linux.
 > - O projeto visa em componentizar e separa o núcleo com base em idéias como Bounded Context/Micro Services.
 > - A base de dados também esta sendo trocada para sistema NoSQL utilizando MongoDB, onde esperamos ter mais flexibilidade para adicionarmos novos recursos.
+
+
