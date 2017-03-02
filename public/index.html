@@ -11,8 +11,24 @@
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.css">
 </head>
 
-<body class=''>
-  <h3>Sigame</h3>
+<body class='container'>
+  <div class="navbar navbar-default">
+    <div class="navbar-header">
+      <button type="button" data-toggle='collapse' data-target="#myNavbar" class="navbar-toggle">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#" class="navbar-brand">Me</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/clientes">Clientes</a></li>
+        <li><a href="#/trabalhos">Trabalhos</a></li>
+        <li><a href="#">Where</a></li>
+      </ul>
+    </div>
+  </div>
   <!-- Views/partial -->
   <div ng-view></div>
 
