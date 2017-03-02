@@ -5,7 +5,7 @@ angular.module('sigame').controller('trabalhosController',
     $scope.filtro = '';
     $scope.mensagem = { texto: '' };
 
-   // var Trabalhos = $resource('/trabalhos/');
+   //var Trabalhos = $resource('/trabalhos/');
 
     function listaTrabalhos() {
       Trabalho.query(

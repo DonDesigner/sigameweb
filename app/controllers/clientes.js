@@ -1,7 +1,7 @@
 module.exports = function (app) {
-  var Clientes = app.models.clientes;
+  let Clientes = app.models.clientes;
 
-  var controller = {};
+  let controller = {};
 
   controller.listarClientes = function (req, res) {
     var promise = Clientes.find().exec()
@@ -17,9 +17,8 @@ module.exports = function (app) {
   };
 
   controller.buscarClientes = function(req, res){
-    var query = req.body.query;
- 
-    var promise = Clientes.find({"nome" : new RegExp(query ,'i')}).exec()
+    
+    var promise = Cliente.find({"cliente" : "/"}).exec()
     .then(
       function(clientes){
         res.json(clientes);
@@ -33,7 +32,6 @@ module.exports = function (app) {
 
   controller.obterCliente = function (req, res) {
     var _id = req.params.id;
-    console.log(req.params.id.test);
 
     Clientes.findById(_id).exec()
       .then(function (cliente) {
@@ -72,7 +70,7 @@ module.exports = function (app) {
         }
         );
     }
-  };
+  }
 
   controller.removerCliente = function(req, res){
     var id = req.params.id;
@@ -85,7 +83,7 @@ module.exports = function (app) {
 
     }
     );
-  };
+  }
 
   return controller;
 }

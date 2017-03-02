@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+var ordemSchema = require('mongoose');
 
 module.exports = function(){
-    var schema = mongoose.Schema({
+    var schema = ordemSchema.Schema({
         cliente: {
             type:String,
             required: true
@@ -12,5 +12,5 @@ module.exports = function(){
         }
     });
 
-    return mongoose.model('Ordens', schema, 'ordens');
+    return ordemSchema.model('Ordens', schema, 'ordens');
 };

@@ -2,6 +2,7 @@
 /LIXO
 /.vscode
 /public/vendor
+/dbs
 *.pws
 .swp
 *.rar

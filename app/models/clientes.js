@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+var clienteSchema = require('mongoose');
 
 module.exports = function(){
-  var schema = mongoose.Schema({
+  var schema = clienteSchema.Schema({
     nome : {
       type : String,
       unique : true,
@@ -21,5 +21,5 @@ module.exports = function(){
     }
   });
 
-  return mongoose.model('Clientes',schema, 'clientes');
+  return clienteSchema.model('Clientes', schema, 'clientes');
 }
