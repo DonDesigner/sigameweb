@@ -1,3 +1,5 @@
+//app/controllers/client.js
+
 module.exports = function (app) {
   let Clients = app.models.clients;
 

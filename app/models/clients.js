@@ -1,3 +1,5 @@
+//app/models/clients.js
+
 var clientSchema = require('mongoose');
 
 module.exports = function(){
