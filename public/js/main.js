@@ -12,34 +12,34 @@ angular.module('sigame', ['ngRoute', 'ngResource'])
         templateUrl: 'partials/root.html',
       })
 
-      .when('/trabalhos', {
-        templateUrl: 'partials/trabalhos.html',
-        controller: 'trabalhosController'
+      .when('/works', {
+        templateUrl: 'partials/works.html',
+        controller: 'worksController'
       })
 
-      .when('/trabalhos/:trabalhoId', {
-        templateUrl: 'partials/trabalho.html',
-        controller: 'trabalhoController'
+      .when('/works/:workId', {
+        templateUrl: 'partials/work.html',
+        controller: 'workController'
       })
 
-      .when('/trabalho', {
-        templateUrl: 'partials/trabalho.html',
-        controller: 'trabalhoController'
+      .when('/work', {
+        templateUrl: 'partials/work.html',
+        controller: 'workController'
       })
 
-      .when('/clientes', {
-        templateUrl: 'partials/clientes.html',
-        controller: 'clientesController'
+      .when('/clients', {
+        templateUrl: 'partials/clients.html',
+        controller: 'clientsController'
       })
 
-      .when('/cliente', {
-        templateUrl: 'partials/cliente.html',
-        controller: 'clienteController'
+      .when('/client', {
+        templateUrl: 'partials/client.html',
+        controller: 'clientController'
       })
 
-      .when('/clientes/:clienteId', {
-        templateUrl: 'partials/cliente.html',
-        controller: 'clienteController'
+      .when('/clients/:clientId', {
+        templateUrl: 'partials/client.html',
+        controller: 'clientController'
       });
 
      // $locationProvider.html5Mode(true);

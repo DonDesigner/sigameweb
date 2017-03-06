@@ -1,25 +1,25 @@
-var clienteSchema = require('mongoose');
+var clientSchema = require('mongoose');
 
 module.exports = function(){
-  var schema = clienteSchema.Schema({
-    nome : {
+  var schema = clientSchema.Schema({
+    name : {
       type : String,
       unique : true,
       required : true
     },
-    cidade : {
+    city : {
       type : String,
       required : true
     },
-    criado : {
+    date : {
       type : String,
       required : true
     },
-    ativo : {
+    enable : {
       type : Boolean,
       required : true
     }
   });
 
-  return clienteSchema.model('Clientes', schema, 'clientes');
+  return clientSchema.model('Clients', schema, 'clients');
 }

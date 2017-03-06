@@ -10,7 +10,7 @@ module.exports = function() {
   app.use(express.static('./public'));
   app.set('view engine', 'ejs');
   app.set('views','./app/views');
-  // novos middlewares
+  // new middlewares
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
   app.use(require('method-override')())
