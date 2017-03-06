@@ -1,1 +1,0 @@
-{"options":{"capped":true,"size":2048},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"foo.MyCappedCol"}]}
